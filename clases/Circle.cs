@@ -1,5 +1,5 @@
 namespace geometricFigures;
-public class Circle : Figure
+public class Circle : ICalculable
 {
     private double radio;
     public Circle(double radio)
@@ -7,18 +7,18 @@ public class Circle : Figure
         this.radio = radio;
     }
     public double getRadio {get {return radio;}}
-    public override double calculateArea()
+    public double calculateArea()
     {
         return Math.PI * Math.Pow(radio, 2);
     }
 
-    public override double calculatePerimeter()
+    public double calculatePerimeter()
     {
         return 2 * Math.PI * radio;
     }
 
     public override string ToString()
     {
-        return $"Círculo: Radio={radio}, Perimetro={calculatePerimeter()}, Area={calculateArea()}";
+        return $"Círculo: Radio={radio}, Perímetro={calculatePerimeter()}, Area={calculateArea()}";
     }
 }

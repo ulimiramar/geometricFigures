@@ -1,5 +1,5 @@
 namespace geometricFigures;
-public class Square : Figure
+public class Square : ICalculable
 {
     private double side;
     public Square(double side)
@@ -8,19 +8,19 @@ public class Square : Figure
     }
 
     public double getSide {get { return side;}}
-    public override double calculateArea()
+    public double calculateArea()
     {
         return Math.Pow(side, 2);
     }
 
-    public override double calculatePerimeter()
+    public double calculatePerimeter()
     {
         return 4 * side;
     }
 
     public override string ToString()
     {
-        return $"Cuadrado: Lado={side}, Perimetro={calculatePerimeter()}, Area={calculateArea()}";
+        return $"Cuadrado: Lado={side}, Perímetro={calculatePerimeter()}, Area={calculateArea()}";
     }
 
 }

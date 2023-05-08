@@ -7,7 +7,7 @@ namespace geometricFigures
     {
         static void Main(String[] args)
         {
-            List<Figure> figures = new List<Figure>();
+            List<ICalculable> figures = new List<ICalculable>();
             bool keepCreating = true;
             while (keepCreating)
             {
@@ -62,7 +62,7 @@ namespace geometricFigures
             }
             
             Console.WriteLine("\nResumen de las figuras geométricas creadas:\n");
-            foreach (Figure figure in figures)
+            foreach (ICalculable figure in figures)
             {
                 Console.WriteLine(figure.ToString());
             }

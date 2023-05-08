@@ -1,5 +1,5 @@
 namespace geometricFigures;
-public class Triangle : Figure
+public class Triangle : ICalculable
 {
     private double side1;
     private double side2;
@@ -12,7 +12,7 @@ public class Triangle : Figure
         this.side3 = side3;
     }
 
-    public override double calculateArea()
+    public double calculateArea()
     {
         // Calculamos el semiperímetro
         double s = (side1 + side2 + side3) / 2;
@@ -22,7 +22,7 @@ public class Triangle : Figure
 
         return area;
     }
-    public override double calculatePerimeter()
+    public double calculatePerimeter()
     {
         return side1 + side2 + side3;
     }
@@ -39,6 +39,6 @@ public class Triangle : Figure
     }
     public override string ToString()
     {
-        return $"Triangulo: Lado1={side1}, Lado2={side2}, Lado3={side3}, Altura={calculateHeight()}, Perimetro={calculatePerimeter()}, Area={calculateArea()}";
+        return $"Triángulo: Lado1={side1}, Lado2={side2}, Lado3={side3}, Altura={calculateHeight()}, Perímetro={calculatePerimeter()}, Area={calculateArea()}";
     }
 }
