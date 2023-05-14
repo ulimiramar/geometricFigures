@@ -7,6 +7,11 @@ public class Triangle : ICalculable
 
     public Triangle(double side1, double side2, double side3)
     {
+        if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1)
+        {
+            throw new TrianguloInvalidoException("el valor de la suma de los lados más cortos debe ser mayor que el del lado más largo.");
+        }
+
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
@@ -14,31 +19,30 @@ public class Triangle : ICalculable
 
     public double calculateArea()
     {
-        // Calculamos el semiperímetro
-        double s = (side1 + side2 + side3) / 2;
-
-        // Calculamos el área utilizando la fórmula de Herón
-        double area = Math.Sqrt(s * (s - side1) * (s - side2) * (s - side3));
-
-        return area;
+        double s = calculateSemiPerimeter();
+        //fórmula de herón para calcular el área
+        return Math.Sqrt(s * (s - side1) * (s - side2) * (s - side3));
     }
+
     public double calculatePerimeter()
     {
         return side1 + side2 + side3;
     }
 
+    public double calculateSemiPerimeter()
+    {
+        return (calculatePerimeter())/2;
+    }
+
     public double calculateHeight()
     {
-        // Calculamos el semiperímetro
-        double s = (side1 + side2 + side3) / 2;
-
         // Calculamos la altura utilizando la fórmula de Herón
-        double height = (2 * Math.Sqrt(s * (s - side1) * (s - side2) * (s - side3))) / side1;
-
-        return height;
+        return (2 * calculateArea()) / side1;
     }
+
     public override string ToString()
     {
         return $"Triángulo: Lado1={side1}, Lado2={side2}, Lado3={side3}, Altura={calculateHeight()}, Perímetro={calculatePerimeter()}, Area={calculateArea()}";
     }
+
 }

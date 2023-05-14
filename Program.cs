@@ -29,15 +29,28 @@ namespace geometricFigures
                         break;
 
                     case 2:
-                        Console.Write("Ingresa el lado 1 del triángulo: ");
-                        double triangleSide1 = Convert.ToDouble(Console.ReadLine());
-                        Console.Write("Ingresa el lado 2 del triángulo: ");
-                        double triangleSide2 = Convert.ToDouble(Console.ReadLine());
-                        Console.Write("Ingresa el lado 3 del triángulo: ");
-                        double triangleSide3 = Convert.ToDouble(Console.ReadLine());
-                        Triangle triangle = new Triangle(triangleSide1,triangleSide2,triangleSide3);
-                        figures.Add(triangle);
-                        Console.WriteLine("Triángulo creado.");
+
+                        try
+                        {
+                            Console.Write("Ingresa el lado 1 del triángulo: ");
+                            double side1 = Convert.ToDouble(Console.ReadLine());
+                            Console.Write("Ingresa el lado 2 del triángulo: ");
+                            double side2 = Convert.ToDouble(Console.ReadLine());
+                            Console.Write("Ingresa el lado 3 del triángulo: ");
+                            double side3 = Convert.ToDouble(Console.ReadLine());
+
+                            Triangle triangle = new Triangle(side1, side2, side3);
+                            figures.Add(triangle);
+                            Console.WriteLine("Triángulo creado.");
+                        }
+                        catch (TrianguloInvalidoException ex)
+                        {
+                            Console.WriteLine("Error: " + ex.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error: " + ex.ToString());
+                        }
                         break;
 
                     case 3:
@@ -60,7 +73,7 @@ namespace geometricFigures
                     keepCreating = false;
                 }
             }
-            
+
             Console.WriteLine("\nResumen de las figuras geométricas creadas:\n");
             foreach (ICalculable figure in figures)
             {

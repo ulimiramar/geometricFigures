@@ -6,7 +6,6 @@ public class Circle : ICalculable
     {
         this.radio = radio;
     }
-    public double getRadio {get {return radio;}}
     public double calculateArea()
     {
         return Math.PI * Math.Pow(radio, 2);

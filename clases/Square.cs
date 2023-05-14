@@ -6,8 +6,6 @@ public class Square : ICalculable
     {
         this.side = side;
     }
-
-    public double getSide {get { return side;}}
     public double calculateArea()
     {
         return Math.Pow(side, 2);
