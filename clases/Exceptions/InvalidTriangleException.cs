@@ -1,7 +1,7 @@
 namespace geometricFigures;
-public class TrianguloInvalidoException : Exception
+public class InvalidTriangleException : Exception
 {
-    public TrianguloInvalidoException(string message) : base(message)
+    public InvalidTriangleException(string message) : base(message)
     {
     }
 }

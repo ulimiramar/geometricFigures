@@ -43,7 +43,7 @@ namespace geometricFigures
                             figures.Add(triangle);
                             Console.WriteLine("Triángulo creado.");
                         }
-                        catch (TrianguloInvalidoException ex)
+                        catch (InvalidTriangleException ex)
                         {
                             Console.WriteLine("Error: " + ex.Message);
                         }

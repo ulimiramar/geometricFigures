@@ -9,7 +9,7 @@ public class Triangle : ICalculable
     {
         if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1)
         {
-            throw new TrianguloInvalidoException("el valor de la suma de los lados más cortos debe ser mayor que el del lado más largo.");
+            throw new InvalidTriangleException("el valor de la suma de los lados más cortos debe ser mayor que el del lado más largo.");
         }
 
         this.side1 = side1;
